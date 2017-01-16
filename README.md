@@ -30,6 +30,21 @@
 <p align="center">Follow <a href="https://twitter.com/browsersync">@Browsersync</a> on twitter for news & updates.</p>
 <p align="center">Community <a href="https://browsersync.herokuapp.com"><img src="https://browsersync.herokuapp.com/badge.svg" /></a></p>
 
+## Difference with offical version
+
+We want to use the External UI when we do local development. So we cut the dns detect and return the options `{online: true}` derectly. 
+In lib/async.js, we replaced the code in getOnlineStatus method by: 
+
+```js
+done(null, {
+    options: {
+        online: true
+    }
+});
+```
+
+It's the only difference with the offical version.
+
 ## Features
 
 Please visit [browsersync.io](http://browsersync.io) for a full run-down of features
